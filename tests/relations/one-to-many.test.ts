@@ -416,6 +416,10 @@ it('cascades foreign record deletion when clearing the entire collection', async
     id: 1,
     posts: [post],
   })
+  await users.create({
+    id: 2,
+    posts: [await posts.create({ title: 'Second' })],
+  })
 
   users.clear()
 
